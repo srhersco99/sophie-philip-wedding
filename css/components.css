@@ -260,7 +260,7 @@
 
 .nav__hamburger span {
   display: block;
-  height: 1.5px;
+  height: 2px;
   background-color: var(--clr-ink);
   border-radius: 2px;
   transition: transform var(--t-base), opacity var(--t-base);
@@ -477,6 +477,9 @@
   margin-top: var(--sp-4);
   font-size: var(--text-sm);
   letter-spacing: 0.15em;
+  display: block;
+  text-align: center;
+  margin-inline: auto;
 }
 
 /* Thank you state */
