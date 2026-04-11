@@ -1,0 +1,175 @@
+/* ═══════════════════════════════════════════════════════════════
+   RESPONSIVE — Mobile-first breakpoints
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── Tablet & below (≤ 900px) ────────────────────────────────── */
+@media (max-width: 900px) {
+  .grid-2,
+  .grid-2--60-40 {
+    grid-template-columns: 1fr;
+    gap: var(--sp-10);
+  }
+
+  .story__inner {
+    grid-template-columns: 1fr;
+    gap: var(--sp-8);
+  }
+
+  .story__pull-quote {
+    font-size: var(--text-lg);
+  }
+
+  .dresscode__cards {
+    grid-template-columns: 1fr;
+  }
+
+  .contact__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .venue__photo-col {
+    order: -1;
+  }
+}
+
+/* ── Mobile (≤ 768px) ────────────────────────────────────────── */
+@media (max-width: 768px) {
+  /* Nav */
+  .nav__links,
+  .nav__rsvp {
+    display: none;
+  }
+
+  .nav__hamburger {
+    display: flex;
+  }
+
+  .nav__mobile-menu {
+    display: flex;
+  }
+
+  /* Hero */
+  #hero {
+    padding-inline: var(--sp-4);
+    padding-top: calc(var(--nav-height) + var(--sp-8));
+    padding-bottom: var(--sp-16);
+  }
+
+  .hero__logo { width: 90px; }
+
+  .hero__welcome {
+    font-size: var(--text-xs);
+  }
+
+  /* Sections */
+  .section {
+    padding-block: var(--sp-10);
+  }
+
+  .section__header {
+    margin-bottom: var(--sp-10);
+  }
+
+  /* Timeline — shift line to left on mobile */
+  .timeline {
+    padding-left: var(--sp-10);
+  }
+
+  .timeline::before {
+    left: 10px;
+  }
+
+  .timeline__dot {
+    left: calc(-1 * var(--sp-10) + 4px);
+  }
+
+  /* Form */
+  .form-frame {
+    padding: var(--sp-8) var(--sp-6);
+  }
+
+  /* Cards */
+  .dresscode__cards {
+    gap: var(--sp-6);
+  }
+
+  /* Gifts */
+  .gifts__lead {
+    font-size: var(--text-md);
+  }
+
+  /* Contact */
+  .contact__grid {
+    max-width: 100%;
+  }
+
+
+  /* Botanical borders on hero — smaller on mobile */
+  .hero__border .border-tl,
+  .hero__border .border-tr,
+  .hero__border .border-bl,
+  .hero__border .border-br {
+    width: 140px !important;
+  }
+
+  /* P.S. section — stack fox/deer vertically on mobile */
+  #ps .reveal[style*="display:flex"] {
+    flex-direction: column;
+    gap: var(--sp-4);
+  }
+
+  #ps .reveal[style*="display:flex"] img {
+    width: 80px !important;
+  }
+}
+
+/* ── Mid mobile (≤ 480px) ────────────────────────────────────── */
+@media (max-width: 480px) {
+  .map-wrapper iframe {
+    height: 220px;
+  }
+
+  .timeline__desc {
+    max-width: 100%;
+  }
+
+  #ps .reveal[style*="display:flex"] img {
+    width: 64px !important;
+  }
+}
+
+/* ── Small mobile (≤ 420px) ──────────────────────────────────── */
+@media (max-width: 420px) {
+  :root {
+    --text-script: clamp(2.8rem, 12vw, 4rem);
+  }
+
+  .container,
+  .container--narrow,
+  .container--form {
+    padding-inline: var(--sp-4);
+  }
+
+  .btn-group {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .btn {
+    width: 100%;
+    max-width: 280px;
+    justify-content: center;
+  }
+
+  .form-frame {
+    padding: var(--sp-6) var(--sp-4);
+    border-radius: var(--radius-lg);
+  }
+}
+
+/* ── Large desktop (≥ 1400px) ────────────────────────────────── */
+@media (min-width: 1400px) {
+  .section {
+    padding-block: var(--sp-32);
+  }
+}

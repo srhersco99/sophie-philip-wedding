@@ -1,0 +1,388 @@
+/* ═══════════════════════════════════════════════════════════════
+   SECTIONS — Section-specific styles
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── Hero ────────────────────────────────────────────────────── */
+#hero {
+  min-height: 100svh;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: calc(var(--nav-height) + var(--sp-12)) var(--sp-6) var(--sp-16);
+  position: relative;
+  background: var(--clr-white);
+  overflow: clip;
+}
+
+/* Wildflower border layers */
+.hero__border {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero__border img {
+  position: absolute;
+  mix-blend-mode: multiply;
+}
+
+.hero__border .border-tl { top: -10px; left: -10px; }
+.hero__border .border-tr { top: -10px; right: -10px; }
+.hero__border .border-bl { bottom: -10px; left: -10px; width: 220px; }
+.hero__border .border-br { bottom: -10px; right: -10px; width: 220px; }
+
+/* Palm house background illustration */
+.hero__palm-house {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 900px;
+  opacity: 0.04;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero__content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero__logo {
+  width: 195px;
+  height: auto;
+  mix-blend-mode: multiply;
+  margin-bottom: var(--sp-6);
+}
+
+.hero__names {
+  line-height: 1;
+  margin-bottom: var(--sp-6);
+}
+
+.hero__ampersand {
+  font-family: var(--font-script);
+  font-size: var(--text-script);
+  color: var(--clr-sage);
+  display: block;
+  margin-block: -0.15em;
+  line-height: 1;
+}
+
+/* Invitation-matched "Please join us" subtext above names */
+.hero__invite-text {
+  font-family: var(--font-serif);
+  font-size: 0.68rem;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--clr-ink);
+  line-height: 1.8;
+  margin-bottom: var(--sp-4);
+  opacity: 0.8;
+}
+
+/* Date — large, bold, spaced (matching invitation "08 . 20 . 2026") */
+.hero__date {
+  font-family: var(--font-serif);
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--clr-ink);
+  margin-top: var(--sp-6);
+  margin-bottom: var(--sp-3);
+}
+
+/* "TWO IN THE AFTERNOON" */
+.hero__venue-line1 {
+  font-family: var(--font-serif);
+  font-size: 0.72rem;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--clr-ink);
+  margin-bottom: var(--sp-2);
+}
+
+/* "KEW GARDENS, LONDON" */
+.hero__venue-line2 {
+  font-family: var(--font-serif);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--clr-sage);
+  margin-bottom: var(--sp-2);
+}
+
+/* "Dinner to follow" italic script */
+.hero__dinner {
+  font-family: var(--font-script);
+  font-size: 1.4rem;
+  color: var(--clr-ink);
+  margin-bottom: var(--sp-10);
+}
+
+/* Scroll caret */
+.hero__scroll {
+  position: absolute;
+  bottom: var(--sp-8);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-2);
+  opacity: 0.5;
+  animation: bounce 2s var(--ease-out) infinite;
+}
+
+.hero__scroll svg {
+  width: 20px;
+  color: var(--clr-sage-mid);
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50%       { transform: translateX(-50%) translateY(6px); }
+}
+
+/* ── Our Story ───────────────────────────────────────────────── */
+#story {
+  background: var(--clr-white);
+}
+
+.story__inner {
+  display: flex;
+  justify-content: center;
+}
+
+.story__pull-quote {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: var(--text-xl);
+  color: var(--clr-sage);
+  line-height: 1.35;
+  position: relative;
+  padding-left: var(--sp-6);
+}
+
+.story__pull-quote::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.2em;
+  bottom: 0.2em;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--clr-blush), var(--clr-lavender));
+  border-radius: 2px;
+}
+
+.story__text p + p {
+  margin-top: var(--sp-4);
+}
+
+.story__corner {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 180px;
+  opacity: 0.55;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
+
+/* ── Itinerary ───────────────────────────────────────────────── */
+#itinerary {
+  background: var(--clr-cream);
+}
+
+.itinerary__note {
+  text-align: center;
+  font-style: italic;
+  font-size: var(--text-sm);
+  color: var(--clr-muted);
+  margin-top: var(--sp-12);
+  max-width: 55ch;
+  margin-inline: auto;
+}
+
+/* ── Venue ───────────────────────────────────────────────────── */
+#venue {
+  background: var(--clr-white);
+}
+
+.venue__description {
+  font-size: var(--text-sm);
+  color: var(--clr-charcoal);
+  line-height: 1.9;
+  margin-bottom: var(--sp-6);
+  max-width: 55ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.venue__photo-col {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+}
+
+.venue__kew-illustration {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--clr-cream);
+  border: var(--border-linen);
+}
+
+.venue__kew-illustration img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  filter: saturate(0.65) contrast(0.9) brightness(1.05) sepia(0.08);
+  mix-blend-mode: multiply;
+  display: block;
+}
+
+.venue__kew-illustration .illustration-placeholder {
+  width: 100%;
+  height: 280px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--clr-sage-mid);
+  font-size: var(--text-sm);
+  text-align: center;
+  padding: var(--sp-8);
+}
+
+.venue__kew-illustration .illustration-placeholder svg {
+  width: 80px;
+  height: 80px;
+  margin-bottom: var(--sp-4);
+  color: var(--clr-sage-mid);
+}
+
+/* ── Dress Code ──────────────────────────────────────────────── */
+#dresscode {
+  background: var(--clr-white);
+}
+
+.dresscode__cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-8);
+  max-width: 800px;
+  margin-inline: auto;
+}
+
+/* ── Gifts ───────────────────────────────────────────────────── */
+#gifts {
+  background: var(--clr-cream);
+}
+
+.gifts__inner {
+  max-width: 620px;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.gifts__lead {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: var(--text-lg);
+  color: var(--clr-sage);
+  line-height: 1.5;
+  margin-bottom: var(--sp-6);
+}
+
+.gifts__body {
+  font-size: var(--text-sm);
+  color: var(--clr-charcoal);
+  line-height: 1.9;
+  margin-bottom: var(--sp-8);
+  margin-inline: auto;
+}
+
+/* ── RSVP ────────────────────────────────────────────────────── */
+#rsvp {
+  background: var(--clr-white);
+}
+
+/* ── Contact & Footer ────────────────────────────────────────── */
+#contact {
+  background: rgba(45, 107, 69, 0.05);
+}
+
+.contact__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-8);
+  max-width: 700px;
+  margin-inline: auto;
+  margin-top: var(--sp-12);
+}
+
+.contact__intro {
+  text-align: center;
+  font-size: var(--text-sm);
+  color: var(--clr-charcoal);
+  max-width: 50ch;
+  margin-inline: auto;
+  margin-top: var(--sp-4);
+}
+
+footer {
+  background: rgba(45, 107, 69, 0.05);
+  border-top: var(--border-linen);
+  padding: var(--sp-12) var(--sp-6);
+  text-align: center;
+}
+
+.footer__logo {
+  width: 60px;
+  height: auto;
+  margin-inline: auto;
+  margin-bottom: var(--sp-4);
+  mix-blend-mode: multiply;
+}
+
+.footer__names {
+  font-family: var(--font-script);
+  font-size: 1.8rem;
+  color: var(--clr-sage);
+  display: block;
+  margin-bottom: var(--sp-2);
+}
+
+.footer__copy {
+  font-size: var(--text-xs);
+  letter-spacing: 0.12em;
+  color: var(--clr-muted);
+  text-transform: uppercase;
+  text-align: center;
+  margin-inline: auto;
+}
+
+.footer__back-top {
+  display: inline-block;
+  margin-top: var(--sp-6);
+  font-size: var(--text-xs);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--clr-sage-mid);
+  border-bottom: 1px solid var(--clr-sage-light);
+  transition: color var(--t-fast);
+}
+
+.footer__back-top:hover { color: var(--clr-sage); }

@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 300" fill="none" aria-hidden="true" focusable="false">
+  <!-- Ground line -->
+  <line x1="0" y1="270" x2="900" y2="270" stroke="#2D6B45" stroke-width="1.5" opacity="0.6"/>
+
+  <!-- === CENTRAL DOME (Palm House main structure) === -->
+  <!-- Main dome curve -->
+  <path d="M320 270 Q320 80 450 40 Q580 80 580 270" stroke="#2D6B45" stroke-width="2" stroke-linecap="round" opacity="0.8"/>
+  <!-- Inner dome rib -->
+  <path d="M360 270 Q360 110 450 75 Q540 110 540 270" stroke="#2D6B45" stroke-width="1.2" stroke-linecap="round" opacity="0.5"/>
+  <!-- Dome ridge finial -->
+  <line x1="450" y1="40" x2="450" y2="24" stroke="#2D6B45" stroke-width="1.5" opacity="0.7"/>
+  <circle cx="450" cy="22" r="4" fill="#2D6B45" opacity="0.6"/>
+
+  <!-- Dome horizontal glazing bars -->
+  <path d="M330 230 Q450 220 570 230" stroke="#2D6B45" stroke-width="0.8" opacity="0.4"/>
+  <path d="M322 190 Q450 178 578 190" stroke="#2D6B45" stroke-width="0.8" opacity="0.4"/>
+  <path d="M320 152 Q450 138 580 152" stroke="#2D6B45" stroke-width="0.8" opacity="0.4"/>
+  <path d="M326 118 Q450 102 574 118" stroke="#2D6B45" stroke-width="0.8" opacity="0.35"/>
+  <path d="M338 90 Q450 72 562 90" stroke="#2D6B45" stroke-width="0.7" opacity="0.3"/>
+
+  <!-- Dome vertical glazing ribs -->
+  <path d="M385 270 Q385 102 450 60" stroke="#2D6B45" stroke-width="0.7" opacity="0.3"/>
+  <path d="M415 270 Q415 86 450 52" stroke="#2D6B45" stroke-width="0.7" opacity="0.3"/>
+  <path d="M515 270 Q515 86 450 52" stroke="#2D6B45" stroke-width="0.7" opacity="0.3"/>
+  <path d="M545 270 Q545 102 450 60" stroke="#2D6B45" stroke-width="0.7" opacity="0.3"/>
+
+  <!-- === SIDE WINGS === -->
+  <!-- Left wing roof arc -->
+  <path d="M200 270 Q200 160 260 130 Q320 160 320 270" stroke="#2D6B45" stroke-width="1.6" stroke-linecap="round" opacity="0.7"/>
+  <!-- Left wing glazing bars -->
+  <path d="M205 235 Q260 228 315 235" stroke="#2D6B45" stroke-width="0.7" opacity="0.35"/>
+  <path d="M205 200 Q260 192 315 200" stroke="#2D6B45" stroke-width="0.7" opacity="0.35"/>
+  <path d="M210 168 Q260 160 310 168" stroke="#2D6B45" stroke-width="0.7" opacity="0.3"/>
+
+  <!-- Right wing roof arc -->
+  <path d="M580 270 Q580 160 640 130 Q700 160 700 270" stroke="#2D6B45" stroke-width="1.6" stroke-linecap="round" opacity="0.7"/>
+  <!-- Right wing glazing bars -->
+  <path d="M585 235 Q640 228 695 235" stroke="#2D6B45" stroke-width="0.7" opacity="0.35"/>
+  <path d="M585 200 Q640 192 695 200" stroke="#2D6B45" stroke-width="0.7" opacity="0.35"/>
+  <path d="M590 168 Q640 160 690 168" stroke="#2D6B45" stroke-width="0.7" opacity="0.3"/>
+
+  <!-- === OUTER LOW WINGS === -->
+  <path d="M100 270 L100 220 Q150 210 200 220 L200 270" stroke="#2D6B45" stroke-width="1.2" opacity="0.55"/>
+  <path d="M100 240 Q150 234 200 240" stroke="#2D6B45" stroke-width="0.7" opacity="0.3"/>
+
+  <path d="M700 270 L700 220 Q750 210 800 220 L800 270" stroke="#2D6B45" stroke-width="1.2" opacity="0.55"/>
+  <path d="M700 240 Q750 234 800 240" stroke="#2D6B45" stroke-width="0.7" opacity="0.3"/>
+
+  <!-- Small wing finials -->
+  <line x1="260" y1="130" x2="260" y2="118" stroke="#2D6B45" stroke-width="1.2" opacity="0.5"/>
+  <circle cx="260" cy="116" r="3" fill="#2D6B45" opacity="0.5"/>
+  <line x1="640" y1="130" x2="640" y2="118" stroke="#2D6B45" stroke-width="1.2" opacity="0.5"/>
+  <circle cx="640" cy="116" r="3" fill="#2D6B45" opacity="0.5"/>
+
+  <!-- Base cornice lines -->
+  <line x1="100" y1="270" x2="800" y2="270" stroke="#2D6B45" stroke-width="2" opacity="0.5"/>
+  <line x1="90" y1="265" x2="810" y2="265" stroke="#2D6B45" stroke-width="0.8" opacity="0.3"/>
+
+  <!-- Decorative entrance doors -->
+  <rect x="436" y="230" width="28" height="40" rx="14" stroke="#2D6B45" stroke-width="1" opacity="0.4" fill="none"/>
+
+  <!-- Foreground wildflower silhouettes (left) -->
+  <path d="M60 270 Q58 240 62 220" stroke="#8AAC78" stroke-width="1" opacity="0.5"/>
+  <ellipse cx="62" cy="216" rx="5" ry="8" fill="#EAA8A8" opacity="0.4" transform="rotate(-10,62,216)"/>
+  <path d="M80 270 Q78 252 82 238" stroke="#5C7A4E" stroke-width="1" opacity="0.5"/>
+  <ellipse cx="82" cy="234" rx="4" ry="7" fill="#B8ACCC" opacity="0.35"/>
+  <path d="M40 270 Q44 258 40 248" stroke="#8AAC78" stroke-width="1" opacity="0.45"/>
+  <ellipse cx="40" cy="244" rx="4" ry="6" fill="#F0DC8C" opacity="0.4"/>
+
+  <!-- Foreground wildflower silhouettes (right) -->
+  <path d="M840 270 Q842 250 838 232" stroke="#8AAC78" stroke-width="1" opacity="0.5"/>
+  <ellipse cx="838" cy="228" rx="5" ry="8" fill="#EAA8A8" opacity="0.4" transform="rotate(8,838,228)"/>
+  <path d="M820 270 Q818 255 822 242" stroke="#5C7A4E" stroke-width="1" opacity="0.5"/>
+  <ellipse cx="822" cy="238" rx="4" ry="7" fill="#A8C4E0" opacity="0.35"/>
+  <path d="M860 270 Q856 260 862 250" stroke="#8AAC78" stroke-width="1" opacity="0.45"/>
+  <ellipse cx="862" cy="246" rx="4" ry="6" fill="#F0DC8C" opacity="0.4"/>
+
+  <!-- Palm fronds visible through glass (silhouette hints) -->
+  <path d="M430 200 Q418 155 408 120" stroke="#5C7A4E" stroke-width="1.2" opacity="0.25"/>
+  <path d="M450 195 Q450 150 450 115" stroke="#5C7A4E" stroke-width="1.2" opacity="0.25"/>
+  <path d="M470 200 Q482 155 492 120" stroke="#5C7A4E" stroke-width="1.2" opacity="0.25"/>
+  <path d="M440 200 Q415 170 400 145" stroke="#5C7A4E" stroke-width="0.8" opacity="0.2"/>
+  <path d="M460 200 Q485 170 500 145" stroke="#5C7A4E" stroke-width="0.8" opacity="0.2"/>
+</svg>

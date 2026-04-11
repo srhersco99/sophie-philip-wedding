@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Philip & Sophie are getting married at Cambridge Cottage, Kew Gardens, London — 20 August 2026.">
+  <meta property="og:title" content="Philip & Sophie — 20 August 2026">
+  <meta property="og:description" content="We're getting married at Cambridge Cottage, Kew Gardens, London.">
+  <meta property="og:image" content="assets/images/logo.jpg">
+  <title>Philip &amp; Sophie — Kew Gardens, 20 August 2026</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/design-system.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/sections.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+
+  <!-- Favicon (use logo) -->
+  <link rel="icon" type="image/jpeg" href="assets/images/logo.jpg">
+</head>
+<body>
+
+  <!-- PASSWORD GATE -->
+  <div id="password-gate" style="
+    position:fixed;inset:0;z-index:9999;
+    background:#FDFCFB;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    gap:1.5rem;padding:2rem;
+    padding-top:calc(2rem + env(safe-area-inset-top));
+    padding-bottom:calc(2rem + env(safe-area-inset-bottom));
+    box-sizing:border-box;
+  ">
+    <img src="assets/images/logo.jpg" alt="Philip & Sophie" style="width:clamp(70px,20vw,100px);margin-bottom:0.5rem;">
+    <p style="font-family:'Pinyon Script',cursive;font-size:clamp(2rem,8vw,2.8rem);color:#2D6B45;line-height:1;">Philip &amp; Sophie</p>
+    <p style="font-family:'Jost',sans-serif;font-weight:300;font-size:0.85rem;letter-spacing:0.12em;color:#4A4A4A;text-transform:uppercase;">Enter password to continue</p>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:0.75rem;width:100%;max-width:280px;">
+      <input id="pw-input" type="password" placeholder="Password" autocomplete="off"
+        style="width:100%;padding:0.65rem 1rem;border:1px solid #D8D0C4;border-radius:4px;
+               font-family:'Jost',sans-serif;font-size:0.95rem;text-align:center;
+               outline:none;background:#fff;color:#2A2A2A;letter-spacing:0.05em;"
+        onkeydown="if(event.key==='Enter')checkPassword()">
+      <button onclick="checkPassword()"
+        style="width:100%;padding:0.65rem 1rem;background:#2D6B45;color:#fff;border:none;
+               border-radius:4px;font-family:'Jost',sans-serif;font-size:0.85rem;
+               letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;">
+        Enter
+      </button>
+      <p id="pw-error" style="font-family:'Jost',sans-serif;font-size:0.8rem;color:#c0392b;display:none;">
+        Incorrect password — please try again
+      </p>
+    </div>
+  </div>
+
+  <script>
+    (function(){
+      if(sessionStorage.getItem('weddingAuth')==='yes'){
+        document.getElementById('password-gate').style.display='none';
+      }
+    })();
+    function checkPassword(){
+      var input=document.getElementById('pw-input').value;
+      if(input.toLowerCase()==='kewgardens2026'){
+        sessionStorage.setItem('weddingAuth','yes');
+        var gate=document.getElementById('password-gate');
+        gate.style.transition='opacity 0.4s';
+        gate.style.opacity='0';
+        setTimeout(function(){gate.style.display='none';},400);
+      } else {
+        var err=document.getElementById('pw-error');
+        err.style.display='block';
+        var inp=document.getElementById('pw-input');
+        inp.value='';
+        inp.style.borderColor='#c0392b';
+        setTimeout(function(){inp.style.borderColor='#D8D0C4';},1500);
+      }
+    }
+  </script>
+
+  <!-- ════════════════════════════════════════════════════════
+       NAVIGATION
+       ════════════════════════════════════════════════════════ -->
+  <nav class="site-nav" aria-label="Main navigation">
+    <a href="#hero" class="nav__wordmark" aria-label="Philip &amp; Sophie — back to top">P&amp;S</a>
+
+    <ul class="nav__links" role="list">
+      <li><a href="#story"     class="nav__link">Our Story</a></li>
+      <li><a href="#itinerary" class="nav__link">Itinerary</a></li>
+      <li><a href="#venue"     class="nav__link">Venue</a></li>
+      <li><a href="#dresscode" class="nav__link">Dress Code</a></li>
+      <li><a href="#gifts"     class="nav__link">Gifts</a></li>
+    </ul>
+
+    <a href="#rsvp" class="nav__rsvp">RSVP</a>
+
+    <button class="nav__hamburger" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile nav overlay -->
+  <div id="mobile-menu" class="nav__mobile-menu" role="dialog" aria-label="Navigation menu">
+    <!-- Corner accents -->
+    <img src="assets/images/botanical-corner-cluster.png" class="nav__mobile-corner nav__mobile-corner--tl" alt="">
+    <img src="assets/images/botanical-corner-cluster.png" class="nav__mobile-corner nav__mobile-corner--br" alt="">
+
+    <a href="#story"     class="nav__mobile-link">Our Story</a>
+    <a href="#itinerary" class="nav__mobile-link">Itinerary</a>
+    <a href="#venue"     class="nav__mobile-link">Venue</a>
+    <a href="#dresscode" class="nav__mobile-link">Dress Code</a>
+    <a href="#gifts"     class="nav__mobile-link">Gifts</a>
+    <a href="#rsvp"      class="nav__mobile-link">RSVP</a>
+    <a href="#contact"   class="nav__mobile-link">Contact</a>
+  </div>
+
+  <main>
+
+    <!-- ════════════════════════════════════════════════════════
+         1. HERO
+         ════════════════════════════════════════════════════════ -->
+    <section id="hero" aria-label="Welcome">
+
+      <!-- Wildflower corner borders matching invitation -->
+      <div class="hero__border" aria-hidden="true">
+        <img src="assets/images/botanical-corner-tl.png" class="border-tl" width="260" alt="">
+        <img src="assets/images/botanical-corner-tr.png" class="border-tr" width="260" alt="">
+        <img src="assets/images/botanical-corner-bl.png" class="border-bl" width="220" alt="">
+        <img src="assets/images/botanical-corner-br.png" class="border-br" width="220" alt="">
+      </div>
+
+      <div class="hero__content">
+
+        <!-- Couple logo / monogram -->
+        <img src="assets/images/logo.jpg"
+             alt="Philip &amp; Sophie — fox and deer in a heart"
+             class="hero__logo">
+
+        <!-- Welcome subtext — matching invitation's "Please join us" line -->
+        <p class="hero__invite-text">
+          PLEASE JOIN US AS WE CELEBRATE<br>THE HAPPY OCCASION OF OUR MARRIAGE
+        </p>
+
+        <!-- Names in script (matching invitation calligraphy) -->
+        <div class="hero__names" aria-label="Philip and Sophie">
+          <span class="script-name">Philip</span>
+          <span class="hero__ampersand">&amp;</span>
+          <span class="script-name">Sophie</span>
+        </div>
+
+        <p class="hero__date">08 &ensp;.&ensp; 20 &ensp;.&ensp; 2026</p>
+        <p class="hero__venue-line1">TWO IN THE AFTERNOON</p>
+        <p class="hero__venue-line2">KEW GARDENS, LONDON</p>
+        <p class="hero__dinner">Reception to follow</p>
+
+        <div class="btn-group hero__ctas">
+          <a href="#itinerary" class="btn btn--filled">See the Itinerary</a>
+          <a href="#rsvp"      class="btn btn--outline">RSVP</a>
+        </div>
+
+      </div>
+
+      <!-- Scroll caret -->
+      <a href="#story" class="hero__scroll" aria-label="Scroll to our story">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M6 9l6 6 6-6"/>
+        </svg>
+      </a>
+
+    </section>
+
+
+    <!-- ════════════════════════════════════════════════════════
+         2. OUR STORY / WHY KEW
+         ════════════════════════════════════════════════════════ -->
+    <section id="story" class="section" aria-labelledby="story-heading">
+
+      <!-- Corner botanical accent -->
+      <img src="assets/images/botanical-corner-cluster.png" class="story__corner" alt="" aria-hidden="true">
+
+      <div class="container">
+
+        <header class="section__header reveal">
+          <span class="section-label">Our Story</span>
+          <h2 id="story-heading">Why Kew Gardens</h2>
+        </header>
+
+        <div class="story__inner">
+          <div class="story__text reveal reveal-d1" style="max-width:65ch;margin-inline:auto;">
+            <p>
+              Kew Gardens holds significance for us as it was the location for one of our early dates. We spent the cool autumn day wandering between the plants and the conservatories, ending at a nearby café in Richmond.
+            </p>
+            <p>
+              When we came back to tour the venue (which just happened to be on Valentine's Day), we accidentally wandered into the same café and decided that Kew would be the perfect location for our wedding.
+            </p>
+            <p>
+              It feels only fitting to begin this next chapter here, in a beautiful location surrounded by our family and closest friends.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="botanical-divider-wrap" aria-hidden="true">
+        <img src="assets/images/botanical-daisy-white.png" alt="">
+      </div>
+
+    </section>
+
+
+    <!-- ════════════════════════════════════════════════════════
+         3. ITINERARY
+         ════════════════════════════════════════════════════════ -->
+    <section id="itinerary" class="section section--alt" aria-labelledby="itinerary-heading">
+      <div class="container--narrow">
+
+        <header class="section__header reveal">
+          <span class="section-label">The Day</span>
+          <h2 id="itinerary-heading">
+            <img src="assets/images/botanical-leaf-sprig.png" width="60" style="display:inline-block;vertical-align:middle;margin-right:12px;opacity:0.8;position:relative;top:-10px;left:8px;" alt="" aria-hidden="true">
+            Event Itinerary
+          </h2>
+        </header>
+
+        <ol class="timeline" aria-label="Wedding day schedule">
+
+          <li class="timeline__item reveal reveal-d1">
+            <div class="timeline__dot"></div>
+            <p class="timeline__time">2:00 pm</p>
+            <h3 class="timeline__title">Arrival at Cambridge Cottage</h3>
+            <p class="timeline__desc">
+              Guests arrive and settle in. Cambridge Cottage is exclusively ours
+              for the occasion — 37 Kew Green, TW9 3AA.
+            </p>
+          </li>
+
+          <li class="timeline__item reveal reveal-d2">
+            <div class="timeline__dot"></div>
+            <p class="timeline__time">2:15 pm</p>
+            <h3 class="timeline__title">Wedding Ceremony</h3>
+            <p class="timeline__desc">
+              Our ceremony will take place outside in the gardens and will be officiated by Rabbi Fabian Sborovsky.
+            </p>
+          </li>
+
+          <li class="timeline__item reveal reveal-d3">
+            <div class="timeline__dot"></div>
+            <p class="timeline__time">3:00 pm</p>
+            <h3 class="timeline__title">Group Photos &amp; Cocktail Hour</h3>
+            <p class="timeline__desc">
+              Join us for group photos in the gardens, followed by cocktails and canapés.
+            </p>
+          </li>
+
+          <li class="timeline__item reveal reveal-d4">
+            <div class="timeline__dot"></div>
+            <p class="timeline__time">5:00 pm</p>
+            <h3 class="timeline__title">Dinner Together</h3>
+            <p class="timeline__desc">
+              We'll continue the celebration with dinner in the cottage.
+            </p>
+          </li>
+
+        </ol>
+
+      </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════════════════════
+         4. VENUE & LOCATION
+         ════════════════════════════════════════════════════════ -->
+    <section id="venue" class="section" aria-labelledby="venue-heading">
+      <div class="container">
+
+        <header class="section__header reveal">
+          <span class="section-label">The Venue</span>
+          <h2 id="venue-heading">Cambridge Cottage, Kew Gardens</h2>
+        </header>
+
+        <div class="container--narrow venue__single-col">
+
+          <!-- Kew Gardens photo -->
+          <div class="venue__photo reveal" style="border-radius:var(--radius-lg);overflow:hidden;border:var(--border-linen);margin-bottom:var(--sp-8);">
+            <img src="assets/images/kew-garden.webp"
+                 alt="Gardens at Kew"
+                 style="width:100%;display:block;filter:saturate(0.75) contrast(0.9) brightness(1.05) sepia(0.06);">
+          </div>
+
+          <!-- Description -->
+          <p class="venue__description reveal" style="text-align:center;margin-bottom:var(--sp-8);">
+            Cambridge Cottage is a historic former royal residence within Kew Gardens,
+            surrounded by beautiful botanical landscapes. Originally built for the Duke
+            of Cambridge, it now offers exclusive use as a uniquely special setting for celebrations. We encourage our guests to spend some time exploring the wider gardens, either before the ceremony or during cocktail hour. Guests will have access to the gardens for the entire day. 
+          </p>
+
+          <!-- Getting Here -->
+          <h3 class="reveal" style="font-family:var(--font-serif);font-size:var(--text-lg);text-align:center;margin-bottom:var(--sp-6);color:var(--clr-ink);">Getting Here</h3>
+
+          <!-- Google Maps embed — lazy loaded via scroll.js -->
+          <div class="map-wrapper reveal reveal-d1" style="margin-bottom:var(--sp-8);">
+            <div data-map-src="https://maps.google.com/maps?q=Cambridge+Cottage,+Kew+Gardens,+Richmond,+TW9+3AB&output=embed"
+                 style="width:100%;height:360px;display:flex;align-items:center;justify-content:center;color:var(--clr-sage-mid);font-size:0.85rem;">
+              Loading map…
+            </div>
+          </div>
+
+          <!-- Transport -->
+          <div class="transport-list reveal reveal-d2">
+            <div class="transport-item">
+              <svg class="transport-item__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                <path d="M12 22s-8-4.5-8-11.8A8 8 0 0112 2a8 8 0 018 8.2c0 7.3-8 11.8-8 11.8z"/>
+                <circle cx="12" cy="10" r="3"/>
+              </svg>
+              <div>
+                <strong>Cambridge Cottage</strong>
+                Located within Kew Gardens at 37 Kew Green, TW9 3AA.
+              </div>
+            </div>
+
+            <div class="transport-item">
+              <svg class="transport-item__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M8 12h8M12 8v8"/>
+              </svg>
+              <div>
+                <strong>Kew Gardens Station</strong>
+                District Line (Zone 3) — approx. 4 min walk to the Victoria Gate entrance.
+              </div>
+            </div>
+
+            <div class="transport-item">
+              <svg class="transport-item__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M8 12h8M12 8v8"/>
+              </svg>
+              <div>
+                <strong>Richmond Station</strong>
+                National Rail &amp; District Line — approx. 15 min walk.
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════════════════════
+         5. DRESS CODE & WEATHER
+         ════════════════════════════════════════════════════════ -->
+    <section id="dresscode" class="section section--alt" aria-labelledby="dresscode-heading">
+      <div class="container">
+
+        <header class="section__header reveal">
+          <span class="section-label">What to Wear</span>
+          <h2 id="dresscode-heading">Dress Code &amp; Weather</h2>
+        </header>
+
+        <div class="dresscode__cards">
+
+          <!-- Dress Code card -->
+          <div class="card reveal reveal-d1">
+            <svg class="card__icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true">
+              <path d="M15 5 Q10 10 8 15 L5 35 L35 35 L32 15 Q30 10 25 5"/>
+              <path d="M15 5 Q17 12 20 14 Q23 12 25 5"/>
+              <path d="M20 14 L20 35"/>
+            </svg>
+            <h3 class="card__title">Garden Formal</h3>
+            <div class="card__body">
+              <p>Our ceremony and reception will take place in the gardens at Kew, so we suggest garden formal attire. If you'd like color inspiration, you may follow the color theme on the invitations or this wedding website.</p>
+              <p>Since we'll be outdoors for the afternoon, if you plan to wear heels we recommend block heels or wedges as the garden paths may be uneven.</p>
+            </div>
+            <img src="assets/images/botanical-corner-cluster.png" class="botanical-corner" alt="" aria-hidden="true">
+          </div>
+
+          <!-- Weather card -->
+          <div class="card reveal reveal-d2">
+            <svg class="card__icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true">
+              <circle cx="20" cy="20" r="7"/>
+              <line x1="20" y1="3" x2="20" y2="7"/>
+              <line x1="20" y1="33" x2="20" y2="37"/>
+              <line x1="3" y1="20" x2="7" y2="20"/>
+              <line x1="33" y1="20" x2="37" y2="20"/>
+              <line x1="8.2" y1="8.2" x2="11" y2="11"/>
+              <line x1="29" y1="29" x2="31.8" y2="31.8"/>
+              <line x1="31.8" y1="8.2" x2="29" y2="11"/>
+              <line x1="11" y1="29" x2="8.2" y2="31.8"/>
+            </svg>
+            <h3 class="card__title">Late August in London</h3>
+            <div class="card__body">
+              <p>Late August is one of London's warmest and sunniest times of year, and with the ceremony outdoors we're hoping to have lovely weather on the day. Average daytime temperatures are around 22–24°C (72–75°F for all the Americans in attendance).</p>
+              <p>That said, in England the weather can be unpredictable. We'd suggest bringing a light layer and an umbrella just in case.</p>
+            </div>
+            <img src="assets/images/botanical-corner-cluster.png" class="botanical-corner" alt="" aria-hidden="true">
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════════════════════
+         6. GIFTS / DONATIONS
+         ════════════════════════════════════════════════════════ -->
+    <section id="gifts" class="section" aria-labelledby="gifts-heading">
+      <div class="container">
+
+        <div class="botanical-divider-wrap" aria-hidden="true" style="margin-top:0;margin-bottom:var(--sp-12);">
+          <img src="assets/images/botanical-daisy.png" alt="" style="mix-blend-mode:normal;">
+        </div>
+
+        <div class="gifts__inner">
+
+          <header class="section__header reveal">
+            <span class="section-label">Gifts</span>
+            <h2 id="gifts-heading">A Note on Gifts</h2>
+          </header>
+
+          <p class="gifts__lead reveal reveal-d1">
+            We're so grateful that you're celebrating this day with us.
+          </p>
+
+          <p class="gifts__body reveal reveal-d2">
+            As we've already been living together for some time and have a fully furnished home, we won't be having a traditional gift registry. Instead, if you would like to mark the occasion, we invite you to consider making a donation in our honor to <span style="color:var(--clr-sage);">UNICEF's Ukraine Emergency Appeal</span>, which supports children and families displaced by the conflict in Ukraine.
+          </p>
+
+          <div class="btn-group reveal reveal-d4" style="margin-top:var(--sp-8);">
+            <a href="https://www.unicef.org.uk/donate/donate-now-to-protect-children-in-ukraine/" class="btn btn--outline" target="_blank" rel="noopener noreferrer">
+              Donate in Our Honor
+            </a>
+          </div>
+
+        </div>
+
+        <div class="botanical-divider-wrap" aria-hidden="true" style="margin-bottom:0;margin-top:var(--sp-12);">
+          <img src="assets/images/botanical-daisy.png" alt="" style="mix-blend-mode:normal;">
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════════════════════
+         7. RSVP
+         ════════════════════════════════════════════════════════ -->
+    <section id="rsvp" class="section section--alt" aria-labelledby="rsvp-heading">
+      <div class="container--form">
+
+        <header class="section__header reveal">
+          <span class="section-label">Join Us</span>
+          <h2 id="rsvp-heading">RSVP</h2>
+          <p style="font-size:var(--text-sm);color:var(--clr-charcoal);max-width:50ch;margin-inline:auto;margin-top:var(--sp-4);">
+            Please let us know by <strong style="font-weight:400;color:var(--clr-sage);">15th June 2026</strong> so we can plan accordingly.
+          </p>
+        </header>
+
+        <div class="form-frame reveal reveal-d1">
+
+          <!-- Corner accents on form -->
+          <img src="assets/images/botanical-corner-cluster.png" alt="" aria-hidden="true"
+               style="position:absolute;top:-8px;right:-8px;width:90px;opacity:0.55;pointer-events:none;transform:rotate(0deg);">
+          <img src="assets/images/botanical-corner-cluster.png" alt="" aria-hidden="true"
+               style="position:absolute;bottom:-8px;left:-8px;width:90px;opacity:0.55;pointer-events:none;transform:rotate(180deg);">
+
+          <!--
+            ═══════════════════════════════════════════════════════
+            FORMSPREE SETUP REQUIRED:
+            1. Create a free account at formspree.io
+            2. Create a new form and copy your endpoint URL
+            3. Replace the action URL below with your endpoint
+               e.g. action="https://formspree.io/f/xyzabc12"
+            ═══════════════════════════════════════════════════════
+          -->
+          <form id="rsvp-form"
+                action="https://formspree.io/f/xqeybdel"
+                method="POST"
+                novalidate>
+
+            <input type="hidden" name="_subject" value="RSVP — Philip &amp; Sophie's Wedding">
+
+            <!-- Full name -->
+            <div class="form-field">
+              <label class="form-label" for="name">Full Name <span aria-hidden="true">*</span></label>
+              <input class="form-input"
+                     type="text"
+                     id="name"
+                     name="name"
+                     autocomplete="name"
+                     required
+                     aria-required="true"
+                     aria-describedby="error-name">
+              <span class="form-error" id="error-name" role="alert"></span>
+            </div>
+
+            <!-- Email -->
+            <div class="form-field">
+              <label class="form-label" for="email">Email Address <span aria-hidden="true">*</span></label>
+              <input class="form-input"
+                     type="email"
+                     id="email"
+                     name="email"
+                     autocomplete="email"
+                     required
+                     aria-required="true"
+                     aria-describedby="error-email">
+              <span class="form-error" id="error-email" role="alert"></span>
+            </div>
+
+            <!-- Attending -->
+            <div class="form-field">
+              <p class="form-label" id="attending-label">Will you be joining us? <span aria-hidden="true">*</span></p>
+              <div class="form-radio-group" role="radiogroup" aria-labelledby="attending-label" aria-describedby="error-attending">
+                <label class="form-radio-label">
+                  <input type="radio" name="attending" value="yes" aria-required="true">
+                  Joyfully yes!
+                </label>
+                <label class="form-radio-label">
+                  <input type="radio" name="attending" value="no">
+                  Regretfully unable to attend
+                </label>
+              </div>
+              <span class="form-error" id="error-attending" role="alert"></span>
+            </div>
+
+            <!-- Dietary (shown only if attending = yes) -->
+            <div class="form-field form-field--hidden" id="field-dietary">
+              <label class="form-label" for="dietary">Dietary Requirements</label>
+              <input class="form-input"
+                     type="text"
+                     id="dietary"
+                     name="dietary"
+                     placeholder="Any allergies or dietary needs? Leave blank if none.">
+            </div>
+
+            <!-- Dinner (shown only if attending = yes) -->
+            <div class="form-field form-field--hidden" id="field-dinner">
+              <p class="form-label" id="dinner-label">Will you be joining us for dinner?</p>
+              <div class="form-radio-group" role="radiogroup" aria-labelledby="dinner-label">
+                <label class="form-radio-label">
+                  <input type="radio" name="dinner" value="yes">
+                  Yes, see you at dinner!
+                </label>
+                <label class="form-radio-label">
+                  <input type="radio" name="dinner" value="no">
+                  I'll be there for the ceremony &amp; reception
+                </label>
+              </div>
+            </div>
+
+            <!-- Message -->
+            <div class="form-field">
+              <label class="form-label" for="message">A Note for Us <span style="font-weight:300;opacity:0.7;">(optional)</span></label>
+              <textarea class="form-textarea"
+                        id="message"
+                        name="message"
+                        rows="3"
+                        placeholder="Any message, wishes, or something you'd like us to know…"></textarea>
+            </div>
+
+            <button type="submit" id="rsvp-submit" class="btn btn--filled form-submit">
+              Send RSVP
+            </button>
+
+          </form>
+
+          <!-- Thank you state (shown after successful submission) -->
+          <div id="rsvp-thankyou" class="rsvp-thankyou" role="status">
+            <img src="assets/images/logo.jpg" alt="" class="rsvp-thankyou__logo">
+            <h3>Thank you!</h3>
+            <p style="color:var(--clr-charcoal);font-size:var(--text-sm);line-height:1.9;">
+              We can't wait to celebrate with you.<br>
+              We'll be in touch with any further details closer to the day.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════════════════════
+         8. P.S. — THE FOX & THE DEER
+         ════════════════════════════════════════════════════════ -->
+    <section id="ps" class="section" aria-labelledby="ps-heading">
+      <div class="container--narrow" style="text-align:center;">
+
+        <div class="reveal" style="display:flex;align-items:center;justify-content:center;gap:var(--sp-6);margin-bottom:var(--sp-2);">
+          <img src="assets/images/fox-only.png" alt="The fox" style="width:120px;filter:brightness(0) saturate(100%) invert(26%) sepia(62%) saturate(500%) hue-rotate(100deg) brightness(85%);">
+          <div style="text-align:center;">
+            <span class="section-label">A Final Note</span>
+            <h2 id="ps-heading" style="font-family:var(--font-script);font-size:clamp(2.5rem,6vw,4rem);font-weight:400;margin:0;line-height:1.1;">P.S.</h2>
+            <h3 style="font-family:var(--font-serif);font-style:italic;font-size:clamp(1.1rem,2.5vw,1.5rem);font-weight:400;color:var(--clr-sage);letter-spacing:0.02em;margin:0.2rem 0 0;">The Fox &amp; The Deer</h3>
+          </div>
+          <img src="assets/images/deer-only.png" alt="The deer" style="width:120px;filter:brightness(0) saturate(100%) invert(26%) sepia(62%) saturate(500%) hue-rotate(100deg) brightness(85%);">
+        </div>
+
+        <div class="reveal reveal-d1" style="font-size:var(--text-sm);color:var(--clr-charcoal);line-height:1.9;max-width:52ch;margin-inline:auto;">
+          <p>You may have noticed that we've included a fox and a deer on our invitation and wondered why. Both of our last names are derived from Yiddish, with <em>Fooks</em> meaning "fox" and <em>Hersh</em> (the root of Herscovici) meaning "deer".</p>
+          <p style="margin-top:var(--sp-4);">Following our wedding we both plan to keep our last names, and remain, as ever, the couple of the fox and the deer.</p>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════════════════════
+         9. CONTACT
+         ════════════════════════════════════════════════════════ -->
+    <section id="contact" class="section section--sage-wash" aria-labelledby="contact-heading">
+      <div class="container">
+
+        <header class="section__header reveal">
+          <span class="section-label">Get in Touch</span>
+          <h2 id="contact-heading">Any Questions?</h2>
+        </header>
+
+        <p class="contact__intro reveal reveal-d1">
+          If you have any questions, please don't hesitate to reach out to us. 
+        </p>
+
+        <div style="max-width:420px;margin-inline:auto;margin-top:var(--sp-8);">
+          <div class="contact-card reveal reveal-d2">
+            <img src="assets/images/logo.jpg" alt="" style="width:60px;margin-inline:auto;margin-bottom:var(--sp-4);mix-blend-mode:multiply;">
+            <p class="contact-card__name" style="font-size:1.6rem;">Philip &amp; Sophie</p>
+            <p class="contact-card__detail" style="margin-top:var(--sp-4);">
+              <a href="mailto:thefoxandthedeer2024@gmail.com">thefoxandthedeer2024@gmail.com</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- ════════════════════════════════════════════════════════
+       FOOTER
+       ════════════════════════════════════════════════════════ -->
+  <footer>
+    <p class="footer__copy">20 August 2026 &ensp;·&ensp; Cambridge Cottage, Kew Gardens, London</p>
+    <a href="#hero" class="footer__back-top">Back to top &uarr;</a>
+  </footer>
+
+
+  <!-- Scripts -->
+  <script src="js/nav.js" defer></script>
+  <script src="js/scroll.js" defer></script>
+  <script src="js/rsvp.js" defer></script>
+
+</body>
+</html>
